@@ -1,0 +1,32 @@
+.message {
+  width: 30%;
+  min-height: 5%;
+  margin: 20px 20px 0;
+  box-shadow: 0 0 5px rgb(0, 0, 0, .5);
+  border-radius: 5px;
+  background-color: #fff;
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.message__author {
+  margin: 0 auto;
+  width: calc(100% - 10px);
+  color: rgb(0, 0, 0, .5);
+}
+
+.message__text {
+  margin: 10px auto;
+  width: calc(100% - 10px);
+}
+
+.message__time {
+  margin: 0px auto;
+  width: calc(100% - 10px);
+  color: rgb(0, 0, 0, .5);
+  text-align: end;
+}

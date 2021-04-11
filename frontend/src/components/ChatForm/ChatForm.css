@@ -1,0 +1,69 @@
+.chat__form {
+  width: 100%;
+  position: relative;
+}
+
+.chat__input {
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  border: solid 1px rgb(0, 0, 0, .3);
+  border-radius: 5px;
+  text-indent: 20px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.21;
+  box-sizing: border-box;
+  outline: none;
+  transition: .2s linear;
+}
+
+.chat__input:focus {
+  box-shadow: 0 0 5px rgb(0, 0, 0, .5);
+}
+
+.chat__btn {
+  width: 80px;
+  height: 40px;
+  background: #2F71E5;
+  border-radius: 5px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #FFFFFF;
+  transition: 0.2s linear;
+}
+
+.chat__btn:hover {
+  cursor: pointer;
+  background-color: #347EFF;
+}
+
+.chat__btn:focus {
+  background-color: #2A65CC;
+}
+
+.chat__btn_inactive {
+  background-color: #E6E8EB;
+  color: #B6BCBF;
+}
+
+.chat__btn_inactive:hover {
+  background-color: #E6E8EB;
+  color: #B6BCBF;
+  cursor: unset;
+}
+
+.chat__btn_pos_absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
