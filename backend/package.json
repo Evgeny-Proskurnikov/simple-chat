@@ -2,7 +2,7 @@
   "name": "simple-chat-backend",
   "version": "1.0.0",
   "description": "websocket chat",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
