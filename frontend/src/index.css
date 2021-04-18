@@ -5,3 +5,6 @@
 @import url(./components/Chat/Chat.css);
 @import url(./components/Message/Message.css);
 @import url(./components/ChatForm/ChatForm.css);
+@import url(./components/Sidebar/Sidebar.css);
+@import url(./components/Loading/Loading.css);
+

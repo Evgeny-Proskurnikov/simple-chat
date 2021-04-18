@@ -32,9 +32,14 @@
   margin: 0 20px;
 }
 
-.chat__main {
+.chat__msg-field {
   display: flex;
   flex-direction: column;
   height: 60vh;
+  width: 100%;
   background-color: #e4d8de;
+}
+
+.chat__main {
+  display: flex;
 }

@@ -13,25 +13,32 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [currentRoom, setCurrentRoom] = useState([]);
 
+  // логин и переход в чат
   function onLogin(data) {
     setLoginData(data);
     setLoggedIn(true);
     history.push('/chat');
   }
 
+  // при выходе из чата очищаем стейт
   function onLeave() {
     setLoggedIn(false);
     setMessages([]);
+    setCurrentUser({});
+    setCurrentRoom([]);
   }
 
+  // при получении сообщения обновляем стейт
   function onMsgRecieve(data) {
     setMessages(data);
   }
 
+  // при получении текущего пользователя обновляем стейт
   function onUserRecieve(data) {
     setCurrentUser(data);
   }
 
+  // при получении текущей комнаты обновляем стейт
   function onRoomDataRecieve(data) {
     setCurrentRoom(data);
   }
