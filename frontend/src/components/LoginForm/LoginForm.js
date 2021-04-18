@@ -13,7 +13,7 @@ function LoginForm({ onLogin, formLoadingState }) {
     <form className='form' name='login-form' onSubmit={handleSubmit(onSubmit)} noValidate>
       <input
         type="text"
-        {...register("user", { required: 'User name is required' })}
+        {...register("name", { required: 'User name is required' })}
         className={cn('input', { "input_type_error":  errors.user })}
         placeholder="Enter your name"
         autoComplete="off"

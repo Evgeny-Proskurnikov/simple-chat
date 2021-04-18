@@ -1,37 +1,59 @@
 import React from 'react';
 import io from 'socket.io-client';
 import { ENDPOINT } from '../../utils/config';
-import { messages } from '../../utils/data';
 import ChatForm from '../ChatForm/ChatForm';
-import Message from '../Message/Message';
+import ChatHeader from '../ChatHeader/ChatHeader';
+import ChatMain from '../ChatMain/ChatMain';
 
-function Chat({ chatRoom, loginData, onLeave }) {
-  let socket;
+let socket;
 
+function Chat({
+  loginData,
+  onLeave,
+  onMsgRecieve,
+  messages,
+  onUserRecieve,
+  currentUser,
+  onRoomDataRecieve,
+  roomData
+}) {
   React.useEffect(() => {
     socket = io(ENDPOINT);
 
-    socket.emit('join', loginData, () => {
-
+    socket.emit('join', loginData, (error) => {
+      if (error) {
+        alert(error);
+      }
     });
-
+  
     return () => {
-      socket.disconnect();
+      socket.removeAllListeners();
       onLeave();
     }
-  }, [ENDPOINT]);
+  }, []); // eslint-disable-line
+
+  React.useEffect(() => {
+    socket.on('message', (msg) => {
+      onMsgRecieve(messages => [...messages, msg]);
+    });
+    socket.on("roomData", ({ users }) => {
+      onRoomDataRecieve(users);
+    });
+    socket.on('userData', (user) => {
+      onUserRecieve(user);
+    });
+  }, []); // eslint-disable-line
+
+  function onSend(message) {
+    socket.emit('message', message);
+  }
 
   return (
     <div className="chat">
       <div className="chat__container">
-        <div className="chat__header">
-          <p className="chat__roomname">{`Room: ${chatRoom}`}</p>
-          <button type="button" className="chat__btn" onClick={onLeave}>Leave</button>
-        </div>
-        <div className="chat__main">
-          {messages.map((el) => <Message msg={el} key={el.time + el.text} />)}
-        </div>
-        <ChatForm />
+        <ChatHeader currentUser={currentUser} onLeave={onLeave} />
+        <ChatMain messages={messages} currentUser={currentUser} />
+        <ChatForm onSend={onSend} />
       </div>
     </div>
   );
